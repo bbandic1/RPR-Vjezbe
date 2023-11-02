@@ -3,8 +3,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Program {
-    public static void main(String[] arg)
-    {
+    public static void main(String[] arg) throws Pogresno {
         FiksniBroj.Grad grad= FiksniBroj.Grad.valueOf("SARAJEVO");
         String broj= "123-456";
         TelefonskiBroj tel = new FiksniBroj(grad,broj);
@@ -35,5 +34,13 @@ public class Program {
         System.out.println("\n" + imenik.naSlovo('A'));
         System.out.println("\n" + imenik.izGrada(grad));
         System.out.println("\n" + imenik.izGradaBrojevi(grad));
+        try{
+            ime="Vasilije";
+            if(ime.equals("Vasilije"))
+                throw new Pogresno("Ne može to ime!");
+        }catch(Pogresno poruka)
+        {
+            System.out.println("Izuzetak: " + poruka);
+        }
     }
 }
