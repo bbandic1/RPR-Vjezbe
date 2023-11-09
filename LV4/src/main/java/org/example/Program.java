@@ -1,5 +1,7 @@
 package org.example;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Program {
@@ -17,6 +19,13 @@ public class Program {
 
         String filePath = "E:/MyDownloads/ETFRI/RPR/Dokument.txt";
         File file=new File(filePath);
+
+        try (FileWriter writer = new FileWriter(file)) {
+            writer.write(""); // Brisanje file-a
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         LaptopDaoSerializableFile lap=new LaptopDaoSerializableFile(file);
 
         lap.dodajLaptopUListu(laptop1);

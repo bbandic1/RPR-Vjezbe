@@ -50,6 +50,10 @@ public class LaptopDaoSerializableFile implements LaptopDao {
                         Laptop l = (Laptop) obj;
                         nlaptopi.add(l);
                     }
+                    else {
+                        for(Laptop lap: (ArrayList<Laptop>) obj)
+                        nlaptopi.add(lap);
+                    }
                 } catch (EOFException e) {
                     break;
                 }
