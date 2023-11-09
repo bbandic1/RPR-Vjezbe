@@ -48,6 +48,15 @@ public class Program {
         }
         System.out.println("\n");
 
+        try {
+            if (laptopi1.isEmpty())
+                throw  new Pogresno("Lista ne smije biti prazna");
+        }
+        catch(Pogresno poruka)
+        {
+            System.out.println("Izuzetak: " + poruka);
+        }
+
         //Primjer oko getLaptop metode
 
         System.out.println("getLaptop metoda PRIMJER: \n");
@@ -81,6 +90,14 @@ public class Program {
         }
         System.out.println("\n");
 
+        try {
+            if (laptopi2.isEmpty())
+                throw  new Pogresno("Lista ne smije biti prazna");
+        }
+        catch(Pogresno poruka)
+        {
+            System.out.println("Izuzetak: " + poruka);
+        }
 
         //JSON PRIMJER
 
@@ -104,6 +121,15 @@ public class Program {
         ArrayList<Laptop> laptopi3 = lap.vratiPodatkeIzDatoteke();
         for (Laptop l : laptopi3) {
             System.out.println(l.getProcesor());
+        }
+
+        try {
+            if (laptopi3.isEmpty())
+                throw  new Pogresno("Lista ne smije biti prazna");
+        }
+        catch(Pogresno poruka)
+        {
+            System.out.println("Izuzetak: " + poruka);
         }
     }
 }
