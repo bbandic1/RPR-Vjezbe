@@ -23,9 +23,9 @@ public class LaptopDaoSerializableFile implements LaptopDao {
 
     @Override
     public Laptop getLaptop(String procesor){
-        this.laptopi = vratiPodatkeIzDatoteke();
+        this.laptopi = vratiPodatkeIzDatoteke();// uzmi podatke iz datoteke
         for(Laptop laptop: laptopi){
-            if(laptop.getProcesor().equals(procesor)){
+            if(laptop.getProcesor().equals(procesor)){ // ako se procesori poklapaju, nasli smo trazeni laptop
                 return laptop;
             }
         }
@@ -39,20 +39,19 @@ public class LaptopDaoSerializableFile implements LaptopDao {
 
     @Override
     public ArrayList<Laptop> vratiPodatkeIzDatoteke() {
-        ArrayList<Laptop> nlaptopi = new ArrayList<>();
+        ArrayList<Laptop> nlaptopi = new ArrayList<>(); // lista za spasavanje procitanih elemenata
 
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file))) {
             while (true) {
                 try {
-                    Object obj = inputStream.readObject();
-                    if (obj instanceof Laptop) {
-                        // Cast the object to Laptop and then add it to the list
+                    Object obj = inputStream.readObject(); // obj može biti tipa Laptop ili ArrayList<Laptop>
+                    if (obj instanceof Laptop) { // ako je objekat tipa Laptop
                         Laptop l = (Laptop) obj;
-                        nlaptopi.add(l);
+                        nlaptopi.add(l); // ubaci ga u listu
                     }
-                    else {
-                        for(Laptop lap: (ArrayList<Laptop>) obj)
-                        nlaptopi.add(lap);
+                    else { // ako nije
+                        for(Laptop lap: (ArrayList<Laptop>) obj) //ispisi sve elemente iz liste
+                        nlaptopi.add(lap); // te dodaj u jedan po jedan laptop u listu
                     }
                 } catch (EOFException e) {
                     break;
@@ -61,13 +60,13 @@ public class LaptopDaoSerializableFile implements LaptopDao {
         } catch (IOException | ClassNotFoundException except) {
             except.printStackTrace();
         }
-        return nlaptopi;
+        return nlaptopi; // vraća se u orginalni laptopi niz
     }
 
     @Override
     public void dodajLaptopUFile(Laptop laptop){
-        laptopi = vratiPodatkeIzDatoteke();
-        laptopi.add(laptop); // Add the new laptop to the existing list
+        laptopi = vratiPodatkeIzDatoteke(); // uzmi podatke iz datoteke
+        laptopi.add(laptop); // dodaj novi laptop na vec procitanu listu
 
         try {
             ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file));
