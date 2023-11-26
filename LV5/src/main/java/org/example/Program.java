@@ -40,13 +40,29 @@ public class Program {
         for (Informacije poruka : porukeIzKolekcije) {
             System.out.println(poruka.predstavi());
         }
+            ArrayList<String> listaImena = new ArrayList<>();
+            listaImena.add("Muhammad Ali");
+            listaImena.add("Cristiano Ronaldo");
+            listaImena.add("Michael Jordan");
 
-        String ime="Billie";
-        String prezime="Jean";
-        KolekcijaImena ki=new KolekcijaImena(ime,prezime);
-        Pobjednik pobjednik=new Pobjednik(ki);
+            KolekcijaImena staraKolekcija = new KolekcijaImena(listaImena);
 
-        System.out.println(pobjednik.getIme());
+            Pobjednik pobjednikStara = new Pobjednik(staraKolekcija);
+            System.out.println("Staro: " + pobjednikStara.getIme() + " " + pobjednikStara.getPrezime());
+
+            // Primjer s novom KolekcijaImenaIPrezimena
+            ArrayList<String> listaImenaNovo = new ArrayList<>();
+            ArrayList<String> listaPrezimenaNovo = new ArrayList<>();
+            listaImenaNovo.add("Benjamin");
+            listaPrezimenaNovo.add("Bandić");
+            listaImenaNovo.add("Son");
+            listaPrezimenaNovo.add("Goku");
+
+            KolekcijaImenaIPrezimena novaKolekcija = new KolekcijaImenaIPrezimena(listaImenaNovo, listaPrezimenaNovo);
+
+
+            Pobjednik pobjednikNova = new Pobjednik(novaKolekcija);
+            System.out.println("Novo: " + pobjednikNova.getIme() + " " + pobjednikNova.getPrezime());
 
 
     }

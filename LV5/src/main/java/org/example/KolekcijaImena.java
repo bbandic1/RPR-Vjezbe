@@ -1,41 +1,33 @@
 package org.example;
 import java.util.ArrayList;
-public class KolekcijaImena implements Informacije{
+import java.util.ArrayList;
 
-    private String ime;
-    private String prezime;
+public class KolekcijaImena implements  Kolekcija{
 
-    KolekcijaImena(String ime, String prezime)
-    {
-        this.ime=ime;
-        this.prezime=prezime;
+    private ArrayList<String> ImenaPrezimena;
+
+    public KolekcijaImena(){
+        this.ImenaPrezimena=new ArrayList<>();
     }
 
-    public KolekcijaImena() {
+    public KolekcijaImena(ArrayList<String> a){
+        this.ImenaPrezimena=a;
     }
 
-    public String getIme()
-    {
-        return this.ime;
-    }
-    public String gePrezime()
-    {
-        return this.prezime;
-    }
-
-    public ArrayList<KolekcijaImena> kolekcijaImenas;
-    public String getNajduzeIme()
-    {
-        String PIme= kolekcijaImenas.get(0).getIme();
-        for(int i=0;i<kolekcijaImenas.size();i++)
-        {
-            if(PIme.length()<kolekcijaImenas.get(i).getIme().length())
-                PIme=kolekcijaImenas.get(i).getIme();
-        }
-        return PIme;
+    public void dodajImePrezime(String imePrezime){
+        ImenaPrezimena.add(imePrezime);
     }
     @Override
-    public String predstavi() {
-        return this.ime+" "+this.prezime;
+    public String getNajduzeIme(){
+        if(ImenaPrezimena.isEmpty()){
+            return null;
+        }
+        String longest = ImenaPrezimena.get(0);
+        for(String ime : ImenaPrezimena){
+            if(ime.length()>longest.length()){
+                longest = ime;
+            }
+        }
+        return longest;
     }
 }
