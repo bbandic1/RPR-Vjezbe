@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.vjezba.HelloController">
+    <left>
+        <ListView fx:id="listaKorisnika" onMouseClicked="#klikMiša" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="100.0" left="10.0" right="10.0" top="50.0" />
+            </BorderPane.margin>
+        </ListView>
+    </left>
+    <center>
+        <VBox prefHeight="300.0" prefWidth="380.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="50.0" right="120.0" top="50.0" />
+            </BorderPane.margin>
+            <children>
+                <Label text="Ime:">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="107.0" top="20.0" />
+                    </VBox.margin>
+                </Label>
+                <Label text="Prezime:">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="85.0" />
+                    </VBox.margin>
+                </Label>
+                <Label text="E-Mail:">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="93.0" />
+                    </VBox.margin>
+                </Label>
+                <Label text="Korisničko Ime:">
+                    <VBox.margin>
+                        <Insets bottom="20.0" left="49.0" />
+                    </VBox.margin>
+                </Label>
+                <Label text="Lozinka:">
+                    <VBox.margin>
+                        <Insets left="87.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+    </center>
+    <right>
+        <VBox prefHeight="300.0" prefWidth="181.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets bottom="50.0" left="-80.0" top="50.0" />
+            </BorderPane.margin>
+            <children>
+                <TextField fx:id="fldIme" maxWidth="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" top="20.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="fldPrezime" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets bottom="13.0" right="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="fldE_mail" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets bottom="12.0" right="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <TextField fx:id="fldKorisnickoIme" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets bottom="10.0" right="10.0" />
+                    </VBox.margin>
+                </TextField>
+                <PasswordField fx:id="fldLozinka" VBox.vgrow="ALWAYS">
+                    <VBox.margin>
+                        <Insets right="10.0" />
+                    </VBox.margin>
+                </PasswordField>
+                <ButtonBar prefHeight="40.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <buttons>
+                        <Button fx:id="btnDodaj" mnemonicParsing="false" onAction="#dodajKorisnika" text="Dodaj" />
+                        <Button fx:id="btnKraj" mnemonicParsing="false" onAction="#Izadji" text="Kraj" />
+                    </buttons>
+                    <VBox.margin>
+                        <Insets right="30.0" />
+                    </VBox.margin>
+                </ButtonBar>
+            </children>
+        </VBox>
+    </right>
+</BorderPane>
